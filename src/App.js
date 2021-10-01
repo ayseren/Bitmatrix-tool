@@ -23,9 +23,9 @@ const App = () => {
         <Re noteClick={noteClicked}/>
         <Mi noteClick={noteClicked} activeNote={note}/>
         <Fa noteClick={noteClicked} buttonDisabled={note === "Do"}/>
-        <Sol />
-        <La />
-        <Si />
+        <Sol noteClick={noteClicked}/>
+        <La noteClick={noteClicked}/>
+        <Si noteClick={noteClicked}/>
       </div>
 
       <span>Basilan nota: {note}</span>

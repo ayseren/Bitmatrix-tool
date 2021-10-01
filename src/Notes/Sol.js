@@ -1,7 +1,7 @@
 import React from "react";
 
-const Sol = () => {
-    return ( <button>Sol</button> );
+const Sol = ({noteClick}) => {
+    return ( <button onClick={() => noteClick("Sol")}>Sol</button> );
 }
 
 export default Sol;
