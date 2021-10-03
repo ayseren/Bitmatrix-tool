@@ -6,15 +6,22 @@ import Fa from './Notes/Fa';
 import Sol from './Notes/Sol';
 import La from './Notes/La';
 import Si from './Notes/Si';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const App = () => {
 
   const [note, setNote] = useState("");
+  const [count, setCount] = useState(0);
 
   const noteClicked = (newNote) => {
     setNote(newNote);
   }
+
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setCount((n) => n+1);
+  //   }, 1000);
+  // }, []);
 
   return (
     <div>
@@ -25,10 +32,14 @@ const App = () => {
         <Fa noteClick={noteClicked} buttonDisabled={note === "Do"}/>
         <Sol noteClick={noteClicked}/>
         <La noteClick={noteClicked}/>
-        <Si noteClick={noteClicked}/>
+        <Si noteClick={noteClicked} buttonDisabled={note === "Sol"}/>
       </div>
 
       <span>Basilan nota: {note}</span>
+
+      <hr />
+
+      <p>{count}</p>
     </div>
   );
 }
