@@ -17,12 +17,34 @@ const App = () => {
     setNote(newNote);
   }
 
+  //useEffect statei takip eder
+
   // useEffect(() => {
   //   setInterval(() => {
   //     setCount((n) => n+1);
   //   }, 1000);
   // }, []);
 
+  //componentdidmount
+  //componentunmount
+  useEffect(() => {
+    let unmounted = false;
+    console.log("bir")
+    if(!unmounted){
+      console.log("iki");
+    }
+
+    return (() => {
+      unmounted = true;
+      console.log("uc");
+    })
+  }, []);
+
+  //componentdidupdate
+  useEffect(() => {
+    console.log("ahmet");
+  }, [note]);
+  
   return (
     <div>
       <div className="piano">
