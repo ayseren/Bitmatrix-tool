@@ -7,6 +7,12 @@ import Sol from './Notes/Sol';
 import La from './Notes/La';
 import Si from './Notes/Si';
 import { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const App = () => {
 
@@ -56,12 +62,40 @@ const App = () => {
         <La noteClick={noteClicked}/>
         <Si noteClick={noteClicked} buttonDisabled={note === "Sol"}/>
       </div>
-
+      
       <span>Basilan nota: {note}</span>
 
       <hr />
 
-      <p>{count}</p>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/do">Do</Link>
+              </li>
+              <li>
+                <Link to="/re">Re</Link>
+              </li>
+              <li>
+                <Link to="/mi">Mi</Link>
+              </li>
+              <li>
+                <Link to="/fa">Fa</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Switch>
+            <Route path="do">
+              <Do noteClick={noteClicked} />
+            </Route>
+            <Route path="re" component="Re"></Route>
+            <Route path="mi" component="Mi"></Route>
+            <Route path="fa" component="Fa"></Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
